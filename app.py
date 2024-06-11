@@ -66,18 +66,17 @@ if st.button("Classify"):
 
         if is_toxic:
             st.write("The comment is **toxic**.")
-            st.write(y_pred_proba)
-            st.write(y_pred)
+
             st.write("Toxicity intensity and categories:")
 
             # Display the probability and category
             for i, label in enumerate(label_columns):
-                st.write(f"{label}: {y_pred_proba[i][0][1]:.2f}")
+          
+                percentage = y_pred_proba[i][0][1] * 100
+                st.write(f"{label}: {percentage:.2f}%")
 
         else:
             st.write("The comment is **non-toxic**.")
-            st.write(y_pred_proba)
-            st.write(y_pred)
-            
+
     else:
         st.write("Please enter a comment to classify.")
